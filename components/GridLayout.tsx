@@ -48,7 +48,7 @@ export const GridLayout = () => {
             <BentoItem className="col-span-1 flex flex-col items-center justify-center p-6 relative group overflow-hidden">
                 <div className="absolute inset-0 bg-neutral-800/50 group-hover:bg-neutral-800/30 transition-colors z-0" />
                 <MapPin className="text-white w-10 h-10 mb-4 z-10" />
-                <h3 className="text-white font-semibold z-10 text-lg">{location}</h3>
+                <h3 className="text-white font-semibold z-10 text-xs md:text-lg">{location}</h3>
                 <p className="text-neutral-500 text-xs z-10 mt-1 uppercase tracking-wide">Based In</p>
                 {/* stylized map background hint */}
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-700 to-transparent" />

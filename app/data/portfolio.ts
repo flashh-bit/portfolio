@@ -31,8 +31,8 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   name: "Krishna.",
   greeting: "Hi, I'm",
-  role: "AI expert & web designer",
-  bio: " crafting high-performance, responsive web experiences with valid semantic HTML and modern CSS.",
+  role: "Learning AI & Web Designer.",
+  bio: " crafting high-performance, responsive web experiences with valid semantic languages and modern CSS.",
   location: "Uttar pradesh, India",
   avatarUrl: "/avatar_v2.jpg",
   techStack: [
@@ -59,12 +59,12 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "Project Alpha",
-      description: "In progress",
+      description: "Under Development",
       link: "#",
       tech: ["Next.js", "Supabase", "Tailwind"],
     },
     {
-      title: "Sync",
+      title: "Sync (soon)",
       description: "Multiplayer social game with real-time sync.",
       link: "#",
       tech: ["Cooking something biggg."],
