@@ -6,13 +6,20 @@ export async function GET() {
         const response = await getNowPlaying();
 
         if (response.status === 204 || response.status > 400) {
-            return NextResponse.json({ isPlaying: false });
+            // DEBUG: Return the actual error reason to help diagnosis
+            const errorData = await response.text(); 
+            console.log("Spotify API Error:", response.status, errorData);
+            return NextResponse.json({ 
+                isPlaying: false, 
+                debug_status: response.status,
+                debug_error: errorData 
+            });
         }
 
         const song = await response.json();
 
         if (song.item === null) {
-            return NextResponse.json({ isPlaying: false });
+            return NextResponse.json({ isPlaying: false, debug_message: "Song item is null" });
         }
 
         const isPlaying = song.is_playing;
@@ -32,7 +39,11 @@ export async function GET() {
         });
     } catch (error) {
         console.error("Error fetching Spotify data:", error);
-        return NextResponse.json({ isPlaying: false });
+        return NextResponse.json({ 
+            isPlaying: false, 
+            debug_error: "Catch block triggered",
+            debug_details: String(error)
+        });
     }
 }
 
