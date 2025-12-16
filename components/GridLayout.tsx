@@ -11,7 +11,7 @@ export const GridLayout = () => {
 
             {/* Item 1: Profile & Bio - Big prominent block */}
 
-            <BentoItem className="col-span-2 md:col-span-2 lg:col-span-2 lg:row-span-2 p-0 flex flex-col justify-between bg-neutral-900 overflow-hidden relative group">
+            <BentoItem className="col-span-2 md:col-span-2 lg:col-span-2 row-span-2 p-0 flex flex-col justify-between bg-neutral-900 overflow-hidden relative group">
 
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
