@@ -7,11 +7,11 @@ export const GridLayout = () => {
     const { name, greeting, role, bio, location, avatarUrl, techStack, socials, spotify, projects } = portfolioData;
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 md:p-8 max-w-6xl mx-auto auto-rows-[180px] md:auto-rows-[250px]">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 md:p-8 max-w-6xl mx-auto auto-rows-[180px] md:auto-rows-[250px]">
 
             {/* Item 1: Profile & Bio - Big prominent block */}
 
-            <BentoItem className="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 p-0 flex flex-col justify-between bg-neutral-900 overflow-hidden relative group">
+            <BentoItem className="col-span-2 md:col-span-2 lg:col-span-2 lg:row-span-2 p-0 flex flex-col justify-between bg-neutral-900 overflow-hidden relative group">
 
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
@@ -73,7 +73,7 @@ export const GridLayout = () => {
             </BentoItem>
 
             {/* Item 4: Tech Stack */}
-            <BentoItem className="col-span-1 md:col-span-2 lg:col-span-1 p-6 flex flex-col">
+            <BentoItem className="col-span-2 md:col-span-2 lg:col-span-1 p-6 flex flex-col">
                 <div className="flex items-center gap-3 mb-4 text-neutral-300">
                     <Code2 size={20} />
                     <h3 className="font-bold">Tech Stack</h3>

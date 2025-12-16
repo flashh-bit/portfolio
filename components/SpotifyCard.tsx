@@ -37,7 +37,7 @@ export const SpotifyCard = () => {
     }, []);
 
     return (
-        <BentoItem className="col-span-1 lg:col-span-1 p-6 flex flex-col justify-between bg-gradient-to-br from-neutral-900 to-green-900/20 overflow-hidden relative group">
+        <BentoItem className="col-span-2 lg:col-span-1 p-6 flex flex-col justify-between bg-gradient-to-br from-neutral-900 to-green-900/20 overflow-hidden relative group">
             <div className="flex justify-between items-start z-10">
                 <div className="bg-green-500/10 p-2 rounded-full backdrop-blur-sm">
                     <Music className="text-green-500 w-6 h-6" />
