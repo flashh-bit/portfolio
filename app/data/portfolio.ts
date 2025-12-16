@@ -34,7 +34,7 @@ export const portfolioData: PortfolioData = {
   role: "AI expert & web designer",
   bio: " crafting high-performance, responsive web experiences with valid semantic HTML and modern CSS.",
   location: "Uttar pradesh, India",
-  avatarUrl: "/avatar.png",
+  avatarUrl: "/avatar_v2.jpg",
   techStack: [
     "Next.js",
     "React",
@@ -65,9 +65,9 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Sync",
-      description: "Multiplayer social game with real-time sync and physics animations.",
+      description: "Multiplayer social game with real-time sync.",
       link: "#",
-      tech: ["Cooking something biggg"],
+      tech: ["Cooking something biggg."],
     },
     {
       title: "Do Nothing Club",
