@@ -59,7 +59,7 @@ export const SpotifyCard = () => {
                     </div>
                 ) : data?.isPlaying ? (
                     <a href={data.songUrl} target="_blank" rel="noopener noreferrer" className="block group-hover:translate-x-1 transition-transform">
-                        <p className="text-xs text-green-400 uppercase font-semibold mb-1 tracking-wider">Now Playing</p>
+                        <p className="text-xs text-green-400 uppercase font-semibold mb-1 tracking-wider">Currently listening to</p>
                         <h3 className="text-white font-bold text-lg leading-tight line-clamp-1 mb-1">{data.title}</h3>
                         <p className="text-neutral-400 text-sm line-clamp-1">{data.artist}</p>
                     </a>
