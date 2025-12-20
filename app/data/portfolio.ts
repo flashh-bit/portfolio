@@ -31,9 +31,9 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   name: "Krishna.",
   greeting: "Hi, I'm",
-  role: "Learning AI & Web Designer.",
+  role: "Web Designer.",
   bio: " crafting high-performance, responsive web experiences with valid semantic languages and modern CSS.",
-  location: "Uttar pradesh, India",
+  location: "Uttar Pradesh, India",
   avatarUrl: "/avatar_v2.jpg",
   techStack: [
     "Next.js",

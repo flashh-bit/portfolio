@@ -1,10 +1,15 @@
+"use client";
+
 import { BentoItem } from "./BentoItem";
 import { portfolioData } from "@/app/data/portfolio";
-import { Github, Twitter, Instagram, Mail, MapPin, Music, Code2, ArrowUpRight } from "lucide-react";
+import { Github, Twitter, Instagram, Mail, MapPin, Music, Code2, ArrowUpRight, FolderOpen } from "lucide-react";
 import { SpotifyCard } from "./SpotifyCard";
+import ProjectModal from "./ProjectModal";
+import { useState } from "react";
 
 export const GridLayout = () => {
     const { name, greeting, role, bio, location, avatarUrl, techStack, socials, spotify, projects } = portfolioData;
+    const [isProjectOpen, setIsProjectOpen] = useState(false);
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 md:p-8 max-w-6xl mx-auto auto-rows-[180px] md:auto-rows-[250px]">
@@ -91,32 +96,34 @@ export const GridLayout = () => {
             <SpotifyCard />
 
             {/* Project Showcase - All Projects */}
-            {projects.map((project, index) => (
-                <BentoItem key={project.title} className="col-span-1 md:col-span-2 lg:col-span-2 p-6 md:p-8 flex flex-col justify-between group relative">
-                    <a href={project.link || "#"} className="absolute inset-0 z-20" aria-label={`View ${project.title}`} />
-                    <div className="flex justify-between items-start mb-6">
-                        <div>
-                            <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider border border-neutral-700 px-2 py-1 rounded-md mb-2 inline-block">
-                                {index === 0 ? "Featured" : "Project"}
-                            </span>
-                            <h3 className="text-xl md:text-3xl font-bold text-white group-hover:text-purple-400 transition-colors relative z-10">
-                                {project.title}
-                            </h3>
-                        </div>
-                        <ArrowUpRight className="text-neutral-500 group-hover:text-white transition-colors relative z-10" />
+            {/* Item 6: Project Vault Trigger - Replaces the mapped list */}
+            <div
+                onClick={() => setIsProjectOpen(true)}
+                className="col-span-1 md:col-span-1 bg-[#171717] border border-neutral-800 rounded-3xl p-6 flex flex-col justify-between h-full cursor-pointer hover:border-purple-500/50 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)] transition-all group relative overflow-hidden"
+            >
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="flex justify-between items-start relative z-10">
+                    <div className="p-3 bg-purple-500/10 rounded-full text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
+                        <FolderOpen className="w-6 h-6" />
                     </div>
-                    <p className="text-neutral-400 text-sm md:text-base max-w-md relative z-10">
-                        {project.description}
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-2 relative z-10">
-                        {project.tech.map(t => (
-                            <span key={t} className="text-xs text-neutral-500">#{t}</span>
-                        ))}
+                    <div className="bg-neutral-800 rounded-full p-2 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                        <ArrowUpRight className="w-4 h-4" />
                     </div>
-                    {/* Subtle hover gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-bl from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
-                </BentoItem>
-            ))}
+                </div>
+
+                <div className="relative z-10">
+                    <h3 className="text-4xl font-bold text-white mb-1 group-hover:scale-110 origin-left transition-transform duration-300">{projects.length}</h3>
+                    <p className="text-sm text-neutral-400 font-medium group-hover:text-purple-300 transition-colors">Selected Projects</p>
+                    <p className="text-xs text-neutral-600 mt-2 group-hover:text-purple-400/70 transition-colors">Tap to view vault</p>
+                </div>
+            </div>
+
+            <ProjectModal
+                isOpen={isProjectOpen}
+                onClose={() => setIsProjectOpen(false)}
+                projects={projects}
+            />
 
         </div>
     );
