@@ -13,8 +13,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Krishna | Web Designer",
-  description: "Portfolio of a Senior Frontend Engineer specialized in high-performance, responsive web design.",
+  metadataBase: new URL("https://flashh-portfolio.netlify.app"),
+  title: {
+    default: "Krishna | Web Designer & AI Expert",
+    template: "%s | Krishna",
+  },
+  description: "Senior Frontend Engineer specialized in high-performance, responsive web design and AI integration.",
+  keywords: ["Web Designer", "Frontend Engineer", "Next.js", "React", "AI Expert", "Portfolio", "Krishna"],
+  authors: [{ name: "Krishna", url: "https://flashh-portfolio.netlify.app" }],
+  creator: "Krishna",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://flashh-portfolio.netlify.app",
+    title: "Krishna | Web Designer & AI Expert",
+    description: "Senior Frontend Engineer specialized in high-performance, responsive web design.",
+    siteName: "Krishna Portfolio",
+    images: [
+      {
+        url: "/avatar_v2.jpg", // Uses your profile pic as the social share image
+        width: 1200,
+        height: 630,
+        alt: "Krishna - Web Designer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Krishna | Web Designer & AI Expert",
+    description: "Senior Frontend Engineer specialized in high-performance, responsive web design.",
+    images: ["/avatar_v2.jpg"],
+    creator: "@uchihaaitachi03",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
