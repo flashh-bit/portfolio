@@ -59,6 +59,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { BrowserGuard } from "@/components/BrowserGuard";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,6 +86,7 @@ export default function RootLayout({
           `}
         </Script>
 
+        <BrowserGuard />
         {children}
       </body>
     </html>
