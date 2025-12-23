@@ -18,6 +18,24 @@ export const BrowserGuard = () => {
         }
     }, []);
 
+    const handleOpenInChrome = () => {
+        const currentUrl = window.location.href;
+        const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+
+        if (/android/i.test(userAgent)) {
+            // Android Intent to force open Chrome
+            const intentUrl = `intent://${currentUrl.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end`;
+            window.location.href = intentUrl;
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+            // iOS Google Chrome Scheme
+            const chromeUrl = currentUrl.replace(/^https/, 'googlechrome'); // change https -> googlechrome
+            window.location.href = chromeUrl;
+        } else {
+            // Fallback - just open in new tab (might still be blocked but worth a try)
+            window.open(currentUrl, '_system');
+        }
+    };
+
     if (!isInApp || !isVisible) return null;
 
     return (
@@ -30,17 +48,19 @@ export const BrowserGuard = () => {
             >
                 <div className="max-w-md mx-auto bg-[#1A1A1A] border border-neutral-800 rounded-2xl p-4 shadow-2xl flex items-center justify-between gap-4">
                     <div className="flex-1">
-                        <h3 className="text-white font-bold text-sm mb-1">Open in Browser</h3>
+                        <h3 className="text-white font-bold text-sm mb-1">In-App Browser Detected</h3>
                         <p className="text-neutral-400 text-xs text-balance">
-                            For better tracking and visuals, please open this outside of Instagram.
+                            Analytics & Animations might break here.
                         </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                        {/* 3 dots hint */}
-                        <div className="hidden md:block text-neutral-500 text-xs mr-2">
-                            Tap <span className="text-white font-bold">•••</span> &rarr; Open in Browser
-                        </div>
+                        <button
+                            onClick={handleOpenInChrome}
+                            className="bg-white text-black px-4 py-2 rounded-full text-xs font-bold hover:bg-gray-200 transition-colors flex items-center gap-2"
+                        >
+                            Open in Chrome <ExternalLink size={12} />
+                        </button>
 
                         <button
                             onClick={() => setIsVisible(false)}
@@ -49,10 +69,6 @@ export const BrowserGuard = () => {
                             <X size={16} className="text-white" />
                         </button>
                     </div>
-                </div>
-                {/* Mobile hint specifically */}
-                <div className="md:hidden text-center mt-4 text-white text-sm animate-pulse">
-                    👆 Tap the <span className="font-bold">3 dots (•••)</span> above <br /> and choose <span className="font-bold">Open in Browser</span>
                 </div>
             </motion.div>
         </AnimatePresence>
