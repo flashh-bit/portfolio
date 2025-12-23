@@ -78,14 +78,14 @@ export const GridLayout = () => {
             </BentoItem>
 
             {/* Item 4: Tech Stack */}
-            <BentoItem className="col-span-2 md:col-span-2 lg:col-span-1 p-6 flex flex-col">
-                <div className="flex items-center gap-3 mb-4 text-neutral-300">
+            <BentoItem className="col-span-2 md:col-span-2 lg:col-span-1 p-5 flex flex-col overflow-y-auto scrollbar-hide">
+                <div className="flex items-center gap-3 mb-4 text-neutral-300 shrink-0">
                     <Code2 size={20} />
                     <h3 className="font-bold">Tech Stack</h3>
                 </div>
                 <div className="flex flex-wrap gap-2 content-start">
                     {techStack.map((tech) => (
-                        <span key={tech} className="px-3 py-1.5 text-xs md:text-sm bg-neutral-800 text-neutral-300 rounded-full border border-neutral-700/50">
+                        <span key={tech} className="px-3 py-1 text-xs md:text-sm bg-neutral-800 text-neutral-300 rounded-full border border-neutral-700/50">
                             {tech}
                         </span>
                     ))}

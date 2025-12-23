@@ -36,14 +36,14 @@ export const portfolioData: PortfolioData = {
   location: "Uttar Pradesh, India",
   avatarUrl: "/avatar_v2.jpg",
   techStack: [
+    "TypeScript",
     "Next.js",
     "React",
-    "TypeScript",
     "Tailwind CSS",
     "Framer Motion",
-    "Node.js",
-    "PostgreSQL",
-    "AWS",
+    "Supabase",
+    "Figma",
+    "OpenAI",
   ],
   socials: {
     github: "https://github.com/flashh-bit",
