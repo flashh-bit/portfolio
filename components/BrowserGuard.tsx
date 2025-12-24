@@ -6,6 +6,35 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export const BrowserGuard = () => {
     const [isInApp, setIsInApp] = useState(false);
+
+    useEffect(() => {
+        // Detect Instagram, Facebook, LinkedIn in-app browsers
+        const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+        const inAppRegex = /Instagram|FBAN|FBAV|LinkedIn/i;
+
+        if (inAppRegex.test(userAgent)) {
+            setIsInApp(true);
+        }
+    }, []);
+
+    const handleOpenInChrome = () => {
+        const currentUrl = window.location.href;
+        const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+
+        if (/android/i.test(userAgent)) {
+            // Android Intent to force open Chrome
+            const intentUrl = `intent://${currentUrl.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end`;
+            window.location.href = intentUrl;
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+            // iOS Google Chrome Scheme
+            const chromeUrl = currentUrl.replace(/^https/, 'googlechrome'); // change https -> googlechrome
+            window.location.href = chromeUrl;
+        } else {
+            // Fallback - just open in new tab (might still be blocked but worth a try)
+            window.open(currentUrl, '_system');
+        }
+    };
+
     if (!isInApp) return null;
 
     return (
