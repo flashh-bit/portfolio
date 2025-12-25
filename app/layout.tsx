@@ -74,7 +74,7 @@ export default function RootLayout({
       >
         <BrowserGuard />
         {children}
-        <GoogleAnalytics gaId="G-19MY0F9T66" />
+        <GoogleAnalytics gaId="G-KZY71HTWBZ" />
       </body>
     </html>
   );
