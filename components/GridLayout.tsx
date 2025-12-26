@@ -189,19 +189,19 @@ const CardTrigger = ({
             <div className={`absolute inset-0 bg-gradient-to-br ${gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
             <div className="flex justify-between items-start relative z-10 w-full">
-                <div className="flex justify-between w-full">
-                    <div className={`p-3 rounded-full transition-colors duration-300 ${iconBg} ${iconColor} group-hover:bg-opacity-100 group-hover:text-white`}>
-                        {icon}
-                    </div>
-                    {badgeText ? (
-                        <div className="px-2 py-1 bg-yellow-500/20 border border-yellow-500/50 rounded-full text-[10px] font-bold text-yellow-500 uppercase tracking-wide">
+                <div className={`p-3 rounded-full transition-colors duration-300 ${iconBg} ${iconColor} group-hover:bg-opacity-100 group-hover:text-white`}>
+                    {icon}
+                </div>
+
+                <div className="flex items-center gap-2">
+                    {badgeText && (
+                        <div className="px-2 py-0.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-[9px] font-bold text-yellow-500 uppercase tracking-wide">
                             {badgeText}
                         </div>
-                    ) : (
-                        <div className="bg-neutral-800 rounded-full p-2 group-hover:bg-white group-hover:text-black transition-colors duration-300">
-                            <ArrowUpRight className="w-4 h-4" />
-                        </div>
                     )}
+                    <div className="bg-neutral-800 rounded-full p-2 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                        <ArrowUpRight className="w-4 h-4" />
+                    </div>
                 </div>
             </div>
 
@@ -209,12 +209,14 @@ const CardTrigger = ({
                 <h3 className={`${isBigTitle ? 'text-4xl' : 'text-2xl'} font-bold text-white mb-1 group-hover:scale-105 origin-left transition-transform duration-300`}>
                     {title}
                 </h3>
-                <p className={`text-sm text-neutral-400 font-medium transition-colors ${hoverColor}`}>
-                    {subtitle}
-                </p>
-                <p className="text-xs text-neutral-600 mt-2 transition-colors">
-                    {action}
-                </p>
+                <div className="flex flex-col">
+                    <p className={`text-sm text-neutral-400 font-medium transition-colors ${hoverColor}`}>
+                        {subtitle}
+                    </p>
+                    <p className="text-xs text-neutral-600 mt-2 transition-colors">
+                        {action}
+                    </p>
+                </div>
             </div>
         </div>
     );
