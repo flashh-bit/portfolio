@@ -6,6 +6,13 @@ export interface Project {
   tech: string[];
 }
 
+export interface Experiment {
+  title: string;
+  description: string;
+  link?: string;
+  tags: string[];
+}
+
 export interface PortfolioData {
   name: string;
   role: string;
@@ -26,6 +33,7 @@ export interface PortfolioData {
     artist: string;
   };
   projects: Project[];
+  experiments: Experiment[];
 }
 
 export const portfolioData: PortfolioData = {
@@ -74,6 +82,26 @@ export const portfolioData: PortfolioData = {
       description: "First basic project.",
       link: "https://do-nothing-club-zeta.vercel.app/",
       tech: ["WebGL", "Three.js", "GSAP"],
+    },
+  ],
+  experiments: [
+    {
+      title: "Glassmorphism Card",
+      description: "A frosted glass UI component with blur effects.",
+      link: "#",
+      tags: ["CSS", "UI"],
+    },
+    {
+      title: "Magnetic Button",
+      description: "Button that follows your cursor on hover.",
+      link: "#",
+      tags: ["Framer Motion", "React"],
+    },
+    {
+      title: "Scroll Parallax",
+      description: "Smooth parallax scrolling effect demo.",
+      link: "#",
+      tags: ["GSAP", "ScrollTrigger"],
     },
   ],
 };
