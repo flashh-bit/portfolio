@@ -59,6 +59,7 @@ export const metadata: Metadata = {
   },
 };
 
+import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { BrowserGuard } from "@/components/BrowserGuard";
 
@@ -75,6 +76,7 @@ export default function RootLayout({
         <BrowserGuard />
         {children}
         <GoogleAnalytics gaId="G-KZY71HTWBZ" />
+        <Analytics />
       </body>
     </html>
   );
