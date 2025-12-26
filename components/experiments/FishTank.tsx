@@ -220,7 +220,7 @@ export const FishTank = () => {
     ), []);
 
     return (
-        <div className="flex flex-col items-center gap-6 w-full max-w-4xl mx-auto p-8 bg-neutral-900 rounded-3xl">
+        <div className="flex flex-col items-center gap-6 w-full max-w-4xl mx-auto p-4 md:p-8 bg-neutral-900 rounded-3xl">
             <style jsx global>{`
                 @keyframes sway {
                     0%, 100% { transform: rotate(-5deg); }
@@ -332,8 +332,8 @@ export const FishTank = () => {
             </div>
 
             {/* CONTROLS */}
-            <div className="w-full bg-[#1a1a1a] p-4 rounded-xl border-t border-[#333] flex items-center justify-between shadow-lg">
-                <div className="flex items-center gap-4 bg-black/50 px-4 py-2 rounded-lg border border-[#333]">
+            <div className="w-full bg-[#1a1a1a] p-4 rounded-xl border-t border-[#333] flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 shadow-lg">
+                <div className="flex items-center justify-center md:justify-start gap-4 bg-black/50 px-4 py-2 rounded-lg border border-[#333]">
                     <div className="text-right">
                         <div className={`text-xs font-mono uppercase ${isNightMode ? 'text-blue-400' : 'text-green-400'}`}>
                             {isNightMode ? 'MOONLIGHT' : 'DAYLIGHT'}
@@ -343,7 +343,7 @@ export const FishTank = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap justify-center gap-2">
                     {(['goldfish', 'betta', 'neon', 'angelfish'] as const).map(type => (
                         <button
                             key={type}
@@ -359,7 +359,7 @@ export const FishTank = () => {
                         </button>
                     ))}
                 </div>
-                <div className="flex gap-2">
+                <div className="flex justify-center gap-2">
                     <button onClick={() => setIsNightMode(!isNightMode)} className={`p-3 rounded-lg border border-[#333] transition-colors ${isNightMode ? 'bg-blue-900/30 text-blue-400' : 'bg-yellow-900/30 text-yellow-400'}`}>
                         {isNightMode ? <Moon size={20} /> : <Sun size={20} />}
                     </button>

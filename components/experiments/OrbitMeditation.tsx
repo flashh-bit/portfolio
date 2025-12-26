@@ -55,10 +55,10 @@ export const OrbitMeditation = () => {
                 </div>
 
                 {/* BOTTOM CONTROLS */}
-                <div className="flex items-end gap-6 pointer-events-auto">
+                <div className="flex flex-col-reverse md:flex-row items-stretch md:items-end gap-4 md:gap-6 pointer-events-auto">
 
                     {/* Time Controls */}
-                    <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex flex-col gap-3 min-w-[200px]">
+                    <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex flex-col gap-3 w-full md:w-auto min-w-[200px]">
                         <div className="flex justify-between text-xs text-white/50 font-mono uppercase">
                             <span className="flex items-center gap-1"><Gauge size={12} /> Time Dilation</span>
                             <span className="text-cyan-400">{timeScale.toFixed(1)}x</span>
@@ -80,12 +80,12 @@ export const OrbitMeditation = () => {
                     </div>
 
                     {/* Planet Picker Carousel */}
-                    <div className="flex-1 flex gap-2 overflow-x-auto pb-2 scrollbar-hide mask-fade-right">
+                    <div className="w-full md:flex-1 flex gap-2 overflow-x-auto pb-2 scrollbar-hide mask-fade-right">
                         {SOLAR_SYSTEM_DATA.filter(p => p.id !== 'sun').map(planet => (
                             <button
                                 key={planet.id}
                                 onClick={() => setSelectedId(planet.id)}
-                                className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all min-w-[140px]
+                                className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all min-w-[140px] shrink-0
                                     ${selectedId === planet.id
                                         ? 'bg-cyan-500/20 border-cyan-500/50 text-white'
                                         : 'bg-black/40 border-white/10 text-white/50 hover:bg-white/10 hover:text-white'}
@@ -107,7 +107,7 @@ export const OrbitMeditation = () => {
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 50 }}
-                        className="absolute top-24 right-6 w-80 pointer-events-auto z-20"
+                        className="absolute top-20 left-4 right-4 md:left-auto md:right-6 md:w-80 pointer-events-auto z-20"
                     >
                         <div className="bg-black/60 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 shadow-2xl">
                             <div className="flex items-start justify-between mb-4">
