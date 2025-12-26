@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@next/third-parties": "^16.1.1",
     "@react-spring/three": "^10.0.3",
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^10.7.7",

@@ -60,8 +60,6 @@ export const metadata: Metadata = {
 };
 
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { BrowserGuard } from "@/components/BrowserGuard";
 
 export default function RootLayout({
   children,
@@ -73,9 +71,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <BrowserGuard />
         {children}
-        <GoogleAnalytics gaId="G-KZY71HTWBZ" />
         <Analytics />
       </body>
     </html>
